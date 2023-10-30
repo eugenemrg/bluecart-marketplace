@@ -10,9 +10,8 @@ function Navbar() {
         </div>
         <div className='Links'>
             <Link>Home</Link>
-            <Link>Sponsors</Link>
-            <Link>FAQs</Link>
-            <Link>Terms</Link>
+            <Link>Profile</Link>
+            <Link>History</Link>
         </div>
         <div className="buttons">
             <button>Login</button>
