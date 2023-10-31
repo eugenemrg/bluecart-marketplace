@@ -21,6 +21,7 @@ function SignupForm({ onClose }) {
         <input type="password" id="password" required placeholder='Enter password' />
         <input type="password" id="confirmPassword" required placeholder='Confirm password'/>
         <button>Sign Up</button>
+        <p>Already have an account? <span>LogIn</span></p>
       </form>
     </div>
   );
