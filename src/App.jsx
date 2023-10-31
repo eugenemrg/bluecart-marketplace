@@ -1,20 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from './Store'; 
+import store from './store/Store';
 import LandingPage from './store/LandingPage';
-import store from './Store';
-// import { Provider } from 'react-redux';
-function App() {
-  
 
+
+function App() {
   return (
-    <Provider  store={store}>
-      <div className='App'>
-        < LandingPage />
+    <Provider store={store}>
+      <div className="App">
+        <LandingPage />
       </div>
     </Provider>
-    
-  )
+  );
 }
 
-export default App
+export default App;

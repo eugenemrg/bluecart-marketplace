@@ -1,8 +1,8 @@
 import React from "react";
-import Basket from './Basket';
-import Carousel from './Carousel';
+import Carousel from './CarouselComponent'; 
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchQuery } from './Actions'; 
+import './LandingPage.css'
 
 const LandingPage = () => {
     const dispatch = useDispatch();
@@ -15,7 +15,6 @@ const LandingPage = () => {
 
     return (
         <div className="landing-page">
-            <Basket />
             <div className="header">
                 <h1>Discover the best deals on all <br /> popular online stores</h1>
                 <p>Millions of products across multiple categories for all shopping needs</p>
@@ -26,14 +25,11 @@ const LandingPage = () => {
                         value={searchQuery}
                         onChange={handleSearchChange}
                     />
-                    <button onClick={() => console.log('Search clicked')}>Search</button>
                 </div>
             </div>
             <Carousel />
             <div className="footer">
                 <h2>Supported Sites</h2>
-                <div className="logo-container">
-                </div>
             </div>
         </div>
     );

@@ -1,58 +1,63 @@
-.landing-page{
+
+.landing-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.basket img{
-    width: 40px;
-    height: 40px;
-}
-
-.basket{
-    display: flex;
-    align-items: flex;
-    justify-content: center;
-    background: beige;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 24px;
-    color: #000;
-}
-
-.header{
+    background-color: beige;
+  }
+  
+  .header {
     text-align: center;
-}
-
-h1{
-    color: rgb(69, 115, 175);
-    font-size: 24px;
-    margin:  20px 0;
-}
-.search-bar{
-    background: bisque;
-    border-radius: 10px;
-    margin: 10px 0;
-    padding: 10px;
-    width: 300px;
-}
-.search-bar input{
+  }
+  
+  h1 {
+    color: rgb(11, 11, 105);
+    font-size: 24px; 
+    margin: 20px 0; 
+  }
+  
+  .search-bar input {
     width: 100%;
     border: none;
     border-radius: 5px;
-    padding: 10%;
-}
-
-.search-bar button{
-    background: #ffcc00;
-    border: none;
-    border-radius: 5px;
-    padding: 20px 20px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.footer{
+    padding: 10px;
+  }
+  
+  .footer {
     background: white;
     padding: 20px;
-}
+  }
+  
+ 
+.carousel {
+    width: 100%; 
+    margin-top: 20px; 
+  }
+  
+  .carousel .slide {
+    background: #f1f1f1; 
+    border: 1px solid #ccc; 
+    padding: 20px; 
+  }
+  
+  .carousel .slide img {
+    max-width: 100%; 
+  }
+  
+  .carousel .control-dots {
+    text-align: center;
+    margin-top: 10px; 
+  }
+  
+  .carousel .control-dots .dot {
+    background: #999; 
+    width: 12px; 
+    height: 12px;  
+    margin: 0 5px; 
+    border-radius: 50%; 
+  }
+  
+  .carousel .control-dots .dot.selected {
+    background: #ffcc00; 
+  }
+  
