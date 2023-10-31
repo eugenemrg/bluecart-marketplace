@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SignupForm from './SignupForm';
+import LoginForm from './LoginForm'; // Import the LoginForm component
+import SignupForm from './SignupForm'; // Import the SignupForm component
 
 function Navbar() {
+  const [showLoginForm, setShowLoginForm] = useState(false);
   const [showSignupForm, setShowSignupForm] = useState(false);
+
+  const toggleLoginForm = () => {
+    setShowLoginForm(!showLoginForm);
+  };
 
   const toggleSignupForm = () => {
     setShowSignupForm(!showSignupForm);
@@ -22,10 +28,11 @@ function Navbar() {
         <Link>History</Link>
       </div>
       <div className="buttons">
-        <button>Login</button>
+        <button onClick={toggleLoginForm}>Login</button>
         <button onClick={toggleSignupForm}>Sign Up</button>
       </div>
-      {showSignupForm && <SignupForm />}
+      {showSignupForm && <SignupForm onClose={toggleSignupForm} />}
+      {showLoginForm && <LoginForm onClose={toggleLoginForm} />}
     </div>
   );
 }
