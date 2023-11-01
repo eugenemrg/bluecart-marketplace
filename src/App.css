@@ -175,7 +175,7 @@ body{
         width: 18rem;
         background: #2d7ad4;
         border: none;
-        height: 4rem;
+       
         margin-top: 1.5rem;
         margin-left: 8rem;
         border-radius: 8px;
@@ -187,4 +187,52 @@ body{
     margin-top: 1rem;
     text-decoration: underline;
     font-size: 1.2rem;
+   }
+
+   .page .card{
+   
+    background: #D9EAFF;
+    height: 14rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 32px 10%;
+    height: 16rem;
+   }
+
+   .page .card .search {
+    margin-left: 4rem;
+    margin-top: -1rem;
+    display: flex;
+    flex-direction: column;
+   }
+   .page .card .search p{
+        font-size: 2.2rem;
+        font-weight: bold;
+   }
+   .page .card .search input{
+    margin-top: 1.5rem;
+    width: 50%;
+    padding: 0px 32px;
+    border-radius: 120px;
+    border: 1px solid #ccc;
+    line-height: 50px;
+    font-size: 16px;
+   }
+
+   .page .card .filter{
+    margin-right: 1rem;
+   }
+
+   .page .card .filter button{
+        height: 5rem;
+        width: 10rem;
+        background: #fff;
+        border-radius: 32px;
+        
+   }
+   .page .card .filter button i{
+     font-size: 2rem;
+     padding: 0px 5px;
+
    }
