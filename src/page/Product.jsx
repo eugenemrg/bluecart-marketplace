@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Product() {
+function Product({data}) {
   return (
     <div className='page'>
         <div className="card">
@@ -12,8 +12,18 @@ function Product() {
                 <button><i class="fa-solid fa-sort"> </i> Filter</button>
             </div>
         </div>
+        <div className="container">
+            {data.map((dataItem, index)=>(
+                <div className="box" key={index}>
+                    <img src={dataItem.product_photos} alt="" />
+                </div>
+            ))}
+        </div>
     </div>
   )
 }
+
+
+
 
 export default Product
