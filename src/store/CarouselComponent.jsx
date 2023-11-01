@@ -1,20 +1,24 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const CarouselComponent = () => {
     return (
-        <Carousel>
-            <div>
-                <img src="image1.jpg"/> 
-            </div>
-            <div>
-                <img src="image2.jpg"/>
-            </div>
-            <div>
-                <img src="image3.jpg"/>
-            </div>
-        </Carousel>
+      
+   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="logo" class="d-block w-100" alt="" />
+    </div>
+    <div class="carousel-item">
+      <img src="logo" class="d-block w-100" alt="" />
+    </div>
+    <div class="carousel-item">
+      <img src="logo" class="d-block w-100" alt="" />
+    </div>
+  </div>
+</div>
+        
     )
 }
 
