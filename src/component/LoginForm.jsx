@@ -23,4 +23,4 @@ function LoginForm({onClose }) {
   )
 }
 
-export default LoginForm
+export default LoginForm;

@@ -9,11 +9,11 @@ function Product() {
                 <input type="text" placeholder='search here for your products ...'/>
             </div>
             <div className="filter">
-                <button><i class="fa-solid fa-sort"> </i> Filter</button>
+                <button><i className="fa-solid fa-sort"> </i> Filter</button>
             </div>
         </div>
     </div>
   )
 }
 
-export default Product
+export default Product;
