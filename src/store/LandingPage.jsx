@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Carousel } from "react-responsive-carousel";
 import Footer from "./Footer";
+import "react-responsive-carousel/lib/styles/carousel.css";
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -16,27 +18,32 @@ const LandingPage = () => {
                     <h1>Discover the best deals on all popular online stores</h1>
                     <p>Millions of products across multiple categories for all shopping needs</p>
                     <input
-                            id="search"
-                            type="text"
-                            placeholder="Search for items and products"
-                            value={searchQuery}
-                            onChange={handleSearchChange}
-                        />
+                        id="search"
+                        type="text"
+                        placeholder="Search for items and products"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                    />
                 </div>
 
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="/src/assets/pexels-cup-of-couple-6956801.png" class="d-block w-100" alt="..." />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/src/assets/pexels-nataliya-vaitkevich-8939564.png" class="d-block w-100" alt="..." />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/src/assets/pexels-sora-shimazaki-5935744.png" class="d-block w-100" alt="..." />
-                        </div>
+                <Carousel
+                    showArrows={true}
+                    showStatus={false}
+                    showThumbs={false}
+                    infiniteLoop={true}
+                    autoPlay={true}
+                    interval={5000}
+                >
+                    <div>
+                        <img src="/src/assets/pexels-cup-of-couple-6956801.png" alt="carousel-1" />
                     </div>
-                </div>
+                    <div>
+                        <img src="/src/assets/pexels-ivan-samkov-7621012.png" alt="carousel-2" />
+                    </div>
+                    <div>
+                        <img src="/src/assets/pexels-sora-shimazaki-5935744.png" alt="carousel-3" />
+                    </div>
+                </Carousel>
             </div>
             <Footer />
         </>

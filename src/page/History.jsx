@@ -90,6 +90,3 @@ function History({ isRegistered }) {
 
 export default History;
 
-async function fetchUserHistoryFromAPI() {
-  return fetch('http://localhost:5173/history');
-}
