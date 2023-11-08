@@ -1,99 +1,114 @@
-body{
+body {
   width: 100%;
   overflow-x: hidden;
   margin-top: 5%;
 }
+
 .landing-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: beige;
-    height: 560px;
-    margin: 0px 10%;
-    border-radius: 0px 0px 32px 32px;
-    background: url('/home/moringa/Desktop/phase_5/bluecart-marketplace/src/assets/lucrezia-carnelos-wQ9VuP_Njr4-unsplash.png');
-    object-fit: cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "def";
+  /* background-color: beige; */
+  /* height: 560px; */
+  border-radius: 0px 0px 32px 32px;
+  /* background: url('/home/moringa/Desktop/phase_5/bluecart-marketplace/src/assets/lucrezia-carnelos-wQ9VuP_Njr4-unsplash.png'); */
+  background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
 
-  }
-  
-  .header {
-    text-align: center;
-  }
- 
+.carousel-text, .carousel{
+  grid-area: def;
+}
 
-  h1 {
-    width: 954px;
-    height: 200px;
-    flex-shrink: 0;
-    color: #2D7AD4;
-    text-align: center;
-    font-family: Outfit;
-    font-size: 72px;
-    font-style: normal;
-    font-weight: 700px;
-    line-height: normal;
-  }
-  p{
-    color: white;
-    text-align: center;
-    font-family: Outfit;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .search-bar input{
-    width: 487px;
-    padding: 16px;
-    flex-shrink: 0;
-    border-radius: 45px;
-    border: 1px solid #000;
-    background: #fefefe;
-    margin-bottom: 91px;
-  }
-  
+.carousel-text{
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.header {
+  text-align: center;
+}
+
+h1 {
+  width: 954px; 
+  height: 200px; 
+  flex-shrink: 0;
+  color: #2D7AD4;
+  text-align: center;
+  font-family: 'Outfit';
+  font-size: 72px; 
+  font-style: normal;
+  font-weight: 700; 
+  line-height: normal;
+}
+
+p {
+  color: black;
+  text-align: center;
+  font-family: 'Outfit';
+  font-size: 20px; 
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 48px;
+}
+
+#search {
+  width: 487px; 
+  padding: 24px 32px;
+  /* height: 63px; */
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+  border-radius: 96px;
+  font-size: 1em;
+  border: 2px solid #2D7AD4;
+  background: #fefefe;
+  margin-bottom: 30px; 
+  outline-style: none;
+}
 
 .footer {
-  width: 1440px;
+  width: 100%; 
   background: #FFF;
-
+  padding: 20px 0; 
 }
-.footer h2{
+
+.footer h2 {
+  /* width: 434px; */
   color: #000;
   text-align: center;
-  font-family: Outfit;
+  font-family: 'Outfit';
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-
-}
-h2{
-  margin-left: 16%;
+  margin-bottom: 20px; 
 }
 
-.company-logos-container{
+.company-logos-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.company-logos{
+.company-logos {
   display: flex;
   flex-direction: row;
 }
 
-.logo{
+.logo {
   display: inline-block;
   padding: 0px 16px;
 }
 
-.footer img{
-  padding-left: 11%;
+.footer img {
   height: 64px;
   flex-shrink: 0;
-
 }
+
+

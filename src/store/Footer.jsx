@@ -1,5 +1,5 @@
 import React from "react";
-import './LandingPage.css';
+// import './LandingPage.css';
 
 function Footer() {
     return (
@@ -14,6 +14,7 @@ function Footer() {
                     <img class="logo" src="/src/assets/Walmart.png" alt="Company Logo 5" />
                 </div>
             </div>
+            <p>&copy; 2023 Your E-commerce Store. All rights reserved.</p>
         </div>
     )
 }

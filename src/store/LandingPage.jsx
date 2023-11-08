@@ -1,36 +1,42 @@
-import React from "react";
-import Carousel from './CarouselComponent';
-import { useDispatch, useSelector } from "react-redux";
-import { setSearchQuery } from './Actions';
+import React, { useState } from "react";
 import Footer from "./Footer";
 import './LandingPage.css';
 
-
 const LandingPage = () => {
-    const dispatch = useDispatch();
-    const searchQuery = useSelector((state) => state.searchQuery);
+    const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearchChange = (e) => {
-        const newQuery = e.target.value;
-        dispatch(setSearchQuery(newQuery));
+        setSearchQuery(e.target.value);
     };
 
     return (
         <>
             <div className="landing-page">
-                <div className="header">
-                    <h1>Discover the best deals on all <br /> popular online stores</h1>
+                <div className="carousel-text">
+                    <h1>Discover the best deals on all popular online stores</h1>
                     <p>Millions of products across multiple categories for all shopping needs</p>
-                    <div className="search-bar">
-                        <input
+                    <input
+                            id="search"
                             type="text"
                             placeholder="Search for items and products"
                             value={searchQuery}
                             onChange={handleSearchChange}
                         />
+                </div>
+
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/src/assets/pexels-cup-of-couple-6956801.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/src/assets/pexels-nataliya-vaitkevich-8939564.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/src/assets/pexels-sora-shimazaki-5935744.png" class="d-block w-100" alt="..." />
+                        </div>
                     </div>
                 </div>
-                <Carousel />
             </div>
             <Footer />
         </>

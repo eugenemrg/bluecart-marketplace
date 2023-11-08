@@ -1,17 +1,44 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './store/Store';
-import LandingPage from './store/LandingPage';
+import { useState, useEffect } from 'react'
+import './App.css'
+import Navbar from './component/Navbar'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './page/Home'
+import Product from './page/Product'
+import Profile from './page/Profile'
+import History from './page/History'
+import LandingPage from './store/LandingPage'
+
+
 
 
 function App() {
+  const [count, setCount] = useState(0)
+  const [data, setData]=useState([])
+  useEffect(()=>{
+    fetch(`http://localhost:8000/data`)
+    .then((res)=>res.json())
+    .then((bots)=>{
+      setData(bots)
+    })
+  
+  }, [])
+
+  console.log(data)
+
   return (
-    <Provider store={store}>
-      <div className="App">
-        <LandingPage />
-      </div>
-    </Provider>
-  );
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route exact path='/' element={<LandingPage />} />
+          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/product' element={<Product />} />
+          <Route exact path='/profile' element={<Profile />} />
+          <Route exact path='/history' element={<History />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
 }
 
 export default App;
