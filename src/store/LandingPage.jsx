@@ -30,7 +30,7 @@ const LandingPage = () => {
                             <img src="/src/assets/pexels-cup-of-couple-6956801.png" class="d-block w-100" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src="/src/assets/pexels-nataliya-vaitkevich-8939564.png" class="d-block w-100" alt="..." />
+                            <img src="/src/assets/pexels-ivan-samkov-7621012.png" class="d-block w-100" alt="..." />
                         </div>
                         <div class="carousel-item">
                             <img src="/src/assets/pexels-sora-shimazaki-5935744.png" class="d-block w-100" alt="..." />
