@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import LoginForm from './LoginForm'; // Import the LoginForm component
-import SignupForm from './SignupForm'; // Import the SignupForm component
+import LoginForm from './LoginForm'; 
+import SignupForm from './SignupForm'; 
+
 
 function Navbar() {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -25,7 +26,7 @@ function Navbar() {
         <Link to='/'>Home</Link>
         <Link to='/product'>Product</Link>
         <Link to='/profile'>Profile</Link>
-        <Link>History</Link>
+        <Link to='/history'>History</Link>
       </div>
       <div className="buttons">
         <button onClick={toggleLoginForm}>Login</button>

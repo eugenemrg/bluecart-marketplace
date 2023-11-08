@@ -5,6 +5,10 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './page/Home'
 import Product from './page/Product'
 import Profile from './page/Profile'
+import History from './page/History'
+import LandingPage from './store/LandingPage'
+
+
 
 
 function App() {
@@ -24,15 +28,17 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar/>
+        <Navbar />
         <Routes>
-          <Route exact path='/' element={<Home/>}/>
-          <Route exact path='/product' element={<Product/>}/>
-          <Route exact path='/profile' element={<Profile/>}/>
+          <Route exact path='/' element={<LandingPage />} />
+          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/product' element={<Product />} />
+          <Route exact path='/profile' element={<Profile />} />
+          <Route exact path='/history' element={<History />} />
         </Routes>
       </BrowserRouter>
     </>
   )
 }
 
-export default App
+export default App;

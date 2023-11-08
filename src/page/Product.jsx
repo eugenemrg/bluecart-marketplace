@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from '../component/ProductCard';
+import ProductCard from '../page/Product';
 
 function Product() {
   const [selectedProduct, setSelectedProduct] = useState(null);
