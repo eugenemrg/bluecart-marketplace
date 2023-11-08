@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Navbar from './component/Navbar'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
@@ -12,6 +12,17 @@ import History from './page/History'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [data, setData]=useState([])
+  useEffect(()=>{
+    fetch(`http://localhost:8000/data`)
+    .then((res)=>res.json())
+    .then((bots)=>{
+      setData(bots)
+    })
+  
+  }, [])
+
+  console.log(data)
 
   return (
     <>
