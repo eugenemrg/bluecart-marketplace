@@ -149,7 +149,8 @@ body{
     line-height: normal;
    }
    .line{
-    padding-left: 43%;
+    font-weight: 200;
+    padding-left: 5%;
    }
    .page .profile{
     display: flex;
