@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 *{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     box-sizing: border-box;
     outline: none;
@@ -100,7 +99,6 @@ body{
   
 
   
- 
   .form p{
     align-items: center;
     text-align: center;
@@ -175,7 +173,7 @@ body{
         width: 18rem;
         background: #2d7ad4;
         border: none;
-       
+       height: 4rem;
         margin-top: 1.5rem;
         margin-left: 8rem;
         border-radius: 8px;
@@ -264,9 +262,16 @@ body{
     line-height: 1.8;
     color: #2d7ad4;
    }
-
-
-  
+   .page .container .box p{
+    font-size: 1.5rem;
+   }
+   .page .container .box span{
+    color: #007bff;
+   }
+  .page .container .box i{
+    margin-top: 1rem;
+    font-size: 2.5rem;
+  }
 .product-card {
   position: fixed;
   top: 0;
@@ -311,6 +316,20 @@ body{
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin: 1rem;
 }
 
+
+.card-content p{
+  font-size: 1.5rem;
+}
+.card-content span{
+  color: #007bff;
+}
+
+.card-content button a {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+}
 
