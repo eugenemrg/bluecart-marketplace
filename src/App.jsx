@@ -7,35 +7,33 @@ import Profile from './page/Profile'
 import History from './page/History'
 import LandingPage from './store/LandingPage'
 import Footer from './store/Footer'
-
-
+import { AuthProvider, RequireAuth } from 'react-auth-kit'
 
 
 function App() {
   const [count, setCount] = useState(0)
   const [data, setData]=useState([])
-  useEffect(()=>{
-    fetch(`http://localhost:8000/data`)
-    .then((res)=>res.json())
-    .then((bots)=>{
-      setData(bots)
-    })
-  
-  }, [])
 
-  console.log(data)
 
   return (
     <>
+    <AuthProvider authType = {'cookie'}
+                  authName={'_auth'}
+                  cookieDomain={window.location.hostname}
+                  cookieSecure= {false}>
       <BrowserRouter>
         <Navbar />
         <Routes>
           <Route exact path='/' element={<LandingPage/>} />
-          <Route exact path='/product' element={<Product />} />
-          <Route exact path='/profile' element={<Profile />} />
           <Route exact path='/history' element={<History />} />
+          <Route exact path='/product' element={<Product/>}/>
+          <Route exact path='/profile' element={
+             <RequireAuth loginPath={'/'}>
+             <Profile/>
+           </RequireAuth>
+          }/>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter></AuthProvider>
     </>
   )
 }

@@ -1,25 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { useSignIn } from 'react-auth-kit';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm({ onClose }) {
+  const signIn = useSignIn();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState(null);
-
-  useEffect(() => {
-    const handleTokenFromURL = () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const token = urlParams.get('token');
-
-      if (token) {
-        localStorage.setItem('token', token);
-        setToken(token);
-      }
-    };
-
-    handleTokenFromURL();
-  }, []);
 
   const toggleForm = () => {
     setIsOpen(!isOpen);
@@ -54,16 +43,41 @@ function LoginForm({ onClose }) {
       });
 
       if (response.status === 200) {
-        const data = await response.json();
-        console.log(data)
-        localStorage.setItem('token', data);
-        setToken(data);
+        try {
+          const data = await response.json();
 
-        Swal.fire({
-          icon: 'success',
-          title: 'Login Successful',
-          text: 'You have successfully logged in.',
-        });
+          if (data.access_token) {
+            localStorage.setItem('access_token', data.access_token);
+            
+            signIn({
+              token: data.access_token,
+              expiresIn: 1800,
+              tokenType: 'Bearer',
+            });
+
+            Swal.fire({
+              icon: 'success',
+              title: 'Login Successful',
+              text: 'You have successfully logged in.',
+            });
+
+            navigate('/');
+          } else {
+            console.error('Invalid token in the response data:', data);
+            Swal.fire({
+              icon: 'error',
+              title: 'Login Failed',
+              text: 'Invalid response data. Please try again.',
+            });
+          }
+        } catch (jsonError) {
+          console.error('JSON parsing error:', jsonError);
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Failed',
+            text: 'Invalid response data. Please try again.',
+          });
+        }
       } else {
         Swal.fire({
           icon: 'error',
@@ -72,6 +86,8 @@ function LoginForm({ onClose }) {
         });
       }
     } catch (error) {
+      console.error('Login Error:', error);
+
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -96,7 +112,7 @@ function LoginForm({ onClose }) {
           input[type="text"],
           input[type="email"],
           input[type="password"] {
-            text-transform: none; /* Remove default capitalization */
+            text-transform: none;
           }
         `}
       </style>
