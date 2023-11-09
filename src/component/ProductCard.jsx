@@ -25,7 +25,6 @@ function ProductCard({ product, onClose }) {
         <img src={product.image} alt={product.name} />
         <p>{product.name}</p>
         <p>Price <span>{product.price}</span></p>
-        <p>Review <span>{product.review}</span></p>
         <button>
           <a href={product.link} target="_blank" rel="noopener noreferrer">
             Buy{getIconForUrl(product.link)}
