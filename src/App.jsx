@@ -35,7 +35,6 @@ function App() {
           <Route exact path='/profile' element={<Profile />} />
           <Route exact path='/history' element={<History />} />
         </Routes>
-        <Footer/>
       </BrowserRouter>
     </>
   )
