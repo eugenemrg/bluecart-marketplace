@@ -40,7 +40,7 @@ body {
   text-align: center;
 }
 
-h1 {
+.carousel-text h1 {
   width: 80%; 
   height: 200px; 
   flex-shrink: 0;
@@ -50,8 +50,8 @@ h1 {
   font-size: 72px; 
   font-style: normal;
   font-weight: 700; 
-  line-height: 1.5;
- margin-bottom: 20%;
+  line-height: 8rem;
+ margin-bottom: 15%;
 }
 
 .carousel-text p {
@@ -62,7 +62,8 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-bottom: 48px;
+  margin-bottom: 8rem;
+  margin-top: 1.5rem;
 }
 
 #search {
