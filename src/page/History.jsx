@@ -18,7 +18,9 @@ function History({ isRegistered }) {
   const fetchHistory = async () => {
     try {
       console.log('Fetching history...');
-      const response = await fetchUserHistoryFromAPI('http://localhost:5173/history');
+      const response = await fetch('http://localhost:5173/history', {
+        headers: {"Authorization": ''},
+      });
       console.log('Response:', response);
 
       if (response.ok) {

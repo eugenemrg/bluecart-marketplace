@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Navbar from './component/Navbar'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from './page/Home'
 import Product from './page/Product'
 import Profile from './page/Profile'
 import History from './page/History'
 import LandingPage from './store/LandingPage'
+import Footer from './store/Footer'
 
 
 
@@ -30,8 +30,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route exact path='/' element={<LandingPage />} />
-          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/' element={<LandingPage/>} />
           <Route exact path='/product' element={<Product />} />
           <Route exact path='/profile' element={<Profile />} />
           <Route exact path='/history' element={<History />} />
