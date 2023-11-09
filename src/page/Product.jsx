@@ -4,33 +4,19 @@ import ProductFilter from '../component/ProductFilter';
 
 function Product() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(localStorage.getItem('searchQuery') || '');
   const [data, setData] = useState([]);
   const [showCard, setShowCard] = useState(false);
   const [filterType, setFilterType] = useState(null);
   const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
   useEffect(() => {
-    // Fetch data when the component mounts
     fetchData();
-    // Set the searchQuery to the value from local storage
-    const storedQuery = localStorage.getItem('searchQuery');
-    if (storedQuery) {
-      setSearchQuery(storedQuery);
-    }
-  }, []);
+  }, [searchQuery]);
 
   function fetchData() {
-    let queryToUse = searchQuery;
-
-    // Check if there is a search query in local storage
-    const storedQuery = localStorage.getItem('searchQuery');
-    if (storedQuery) {
-      queryToUse = storedQuery;
-    }
-
-    if (queryToUse !== "") {
-      const requestBody = JSON.stringify({ query: queryToUse });
+    if (searchQuery !== "") {
+      const requestBody = JSON.stringify({ query: searchQuery });
 
       fetch("https://bluecart-api.onrender.com/search", {
         method: "POST",
@@ -80,11 +66,6 @@ function Product() {
   const toggleFilterDropdown = () => {
     setShowFilterDropdown(!showFilterDropdown);
   };
-
-  // Use useEffect to fetch data when searchQuery changes
-  useEffect(() => {
-    fetchData();
-  }, [searchQuery]);
 
   return (
     <div className={`page ${showCard ? 'fade' : ''}`}>

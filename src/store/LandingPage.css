@@ -65,7 +65,20 @@ body {
   margin-bottom: 8rem;
   margin-top: 1.5rem;
 }
-
+.carousel-text button{
+  font-size: 1.5rem;
+  color: #fff;
+  width: 18rem;
+  background: #2d7ad4;
+  border: none;
+  height: 6rem;
+  margin-top: -9rem;
+  margin-left: 70rem;
+  border-radius: 8px;
+}
+.carousel-text button a{
+  color: #FFF;
+}
 #search {
   width: 487px; 
   padding: 24px 32px;
@@ -75,6 +88,7 @@ body {
   font-size: 1em;
   border: 2px solid #2D7AD4;
   background: #fefefe;
+  margin-top: -6rem;
   margin-bottom: 30px; 
   outline-style: none;
 }
