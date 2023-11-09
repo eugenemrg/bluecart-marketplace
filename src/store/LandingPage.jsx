@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import Footer from "./Footer";
 import "react-responsive-carousel/lib/styles/carousel.css";
 import './LandingPage.css';
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -10,6 +11,11 @@ const LandingPage = () => {
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
     };
+
+    const handleSubmit =() =>{
+        const query= searchQuery
+        localStorage.setItem('searchQuery',query)
+    }
 
     return (
         <>
@@ -24,6 +30,7 @@ const LandingPage = () => {
                         value={searchQuery}
                         onChange={handleSearchChange}
                     />
+                    <button onClick={handleSubmit}><Link to='/product'>Search</Link></button>
                 </div>
 
                 <Carousel

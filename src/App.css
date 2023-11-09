@@ -430,6 +430,41 @@ body {
   background: #007bff;
 }
 
+.page .top_card{
+  background: #3e93cb;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 15rem;
+  width: 100%;
+  margin-top: -6rem;
+  margin-bottom: 2rem;
+}
+
+.page .top_card h3{
+  line-height: 14rem;
+  font-size: 5rem;
+}
+
+.table-row{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin:1.5rem 30%;
+  height: 5rem;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+.table-row p{
+  line-height: 2rem;
+  margin-bottom: -1rem;
+  font-size: 1.5rem;
+}
+
+
+
+
 /* Media Queries for Responsiveness */
 
 @media (max-width: 768px) {

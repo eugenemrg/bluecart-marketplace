@@ -4,7 +4,7 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
-function SignupForm({ onClose }) {
+function SignupForm({ onClose , onOpen}) {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleForm = () => {
@@ -90,7 +90,7 @@ function SignupForm({ onClose }) {
         />
         <button type="submit">Sign Up</button>
         <p>
-          Already have an account? <span>Log In</span>
+          Already have an account? <span onClick={onOpen}>Log In</span>
         </p>
       </form>
       <style>

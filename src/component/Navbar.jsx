@@ -10,10 +10,12 @@ function Navbar() {
 
   const toggleLoginForm = () => {
     setShowLoginForm(!showLoginForm);
+    setShowSignupForm(false)
   };
 
   const toggleSignupForm = () => {
     setShowSignupForm(!showSignupForm);
+    setShowLoginForm(false)
   };
 
   return (
@@ -32,8 +34,8 @@ function Navbar() {
         <button onClick={toggleLoginForm}>Login</button>
         <button onClick={toggleSignupForm}>Sign Up</button>
       </div>
-      {showSignupForm && <SignupForm onClose={toggleSignupForm} />}
-      {showLoginForm && <LoginForm onClose={toggleLoginForm} />}
+      {showSignupForm && <SignupForm onClose={toggleSignupForm} onOpen={toggleLoginForm}/>}
+      {showLoginForm && <LoginForm onClose={toggleLoginForm} onOpen={toggleSignupForm}/>}
     </div>
   );
 }

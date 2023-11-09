@@ -10,21 +10,38 @@ function Product() {
   const [filterType, setFilterType] = useState(null);
   const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
-  function getitems(e) {
-    if (e.keyCode === 13) {
-      if (searchQuery !== "") {
-        const requestBody = JSON.stringify({ query: searchQuery });
-        fetch("https://bluecart-api.onrender.com/search", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: requestBody,
-        })
-          .then((response) => response.json())
-          .then((responseData) => setData(responseData))
-          .catch((error) => console.error('Error fetching data:', error));
-      }
+  useEffect(() => {
+    // Fetch data when the component mounts
+    fetchData();
+    // Set the searchQuery to the value from local storage
+    const storedQuery = localStorage.getItem('searchQuery');
+    if (storedQuery) {
+      setSearchQuery(storedQuery);
+    }
+  }, []);
+
+  function fetchData() {
+    let queryToUse = searchQuery;
+
+    // Check if there is a search query in local storage
+    const storedQuery = localStorage.getItem('searchQuery');
+    if (storedQuery) {
+      queryToUse = storedQuery;
+    }
+
+    if (queryToUse !== "") {
+      const requestBody = JSON.stringify({ query: queryToUse });
+
+      fetch("https://bluecart-api.onrender.com/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: requestBody,
+      })
+        .then((response) => response.json())
+        .then((responseData) => setData(responseData))
+        .catch((error) => console.error('Error fetching data:', error));
     }
   }
 
@@ -40,12 +57,6 @@ function Product() {
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      setSearchQuery(event.target.value);
-    }
   };
 
   const getIconForUrl = (url) => {
@@ -70,6 +81,11 @@ function Product() {
     setShowFilterDropdown(!showFilterDropdown);
   };
 
+  // Use useEffect to fetch data when searchQuery changes
+  useEffect(() => {
+    fetchData();
+  }, [searchQuery]);
+
   return (
     <div className={`page ${showCard ? 'fade' : ''}`}>
       <div className="card">
@@ -80,8 +96,6 @@ function Product() {
             placeholder="Search here for your products ..."
             value={searchQuery}
             onChange={handleSearch}
-            onKeyUp={getitems}
-            onKeyPress={handleKeyPress}
           />
         </div>
         <div className="filter">
