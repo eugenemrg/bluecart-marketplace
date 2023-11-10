@@ -42,13 +42,13 @@ const LandingPage = () => {
                     interval={5000}
                 >
                     <div>
-                        <img src="/src/assets/pexels-cup-of-couple-6956801.png" alt="carousel-1" />
+                        <img src="/public/assets/pexels-cup-of-couple-6956801.png" alt="carousel-1" />
                     </div>
                     <div>
-                        <img src="/src/assets/pexels-ivan-samkov-7621012.png" alt="carousel-2" />
+                        <img src="/public/assets/pexels-ivan-samkov-7621012.png" alt="carousel-2" />
                     </div>
                     <div>
-                        <img src="/src/assets/pexels-sora-shimazaki-5935744.png" alt="carousel-3" />
+                        <img src="/public/assets/pexels-sora-shimazaki-5935744.png" alt="carousel-3" />
                     </div>
                 </Carousel>
             </div>
