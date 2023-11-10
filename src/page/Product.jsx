@@ -17,12 +17,23 @@ function Product() {
   function fetchData() {
     if (searchQuery !== "") {
       const requestBody = JSON.stringify({ query: searchQuery });
+      const token = localStorage.getItem('access_token');
+      let headers = {}
+
+      if (token) {
+        headers = {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        }
+      } else {
+        headers = {
+          "Content-Type": "application/json",
+        }
+      }
 
       fetch("https://bluecart-api.onrender.com/search", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: headers,
         body: requestBody,
       })
         .then((response) => response.json())
