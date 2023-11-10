@@ -147,4 +147,51 @@ body {
   flex-shrink: 0;
 }
 
+@media (max-width: 768px) {
+  .carousel-text h1 {
+    position: relative;
+    font-size: 16px; 
+    line-height: normal;
+    top: 0;
+    margin-top: -47rem;
+  }
+  .page{
+    margin-top: 10rem;
+  }
+  .carousel-text p {
+    position: absolute;
+    font-size: 13px; 
+    margin-top: -33rem;
+    top: 0;
+  }
+  #search{
+    position: absolute;
+    top: 0;
+    margin-top: -27rem;
+    height: 5rem;
+    width: 25rem;
+  }
+  .carousel-text button {
+    position: absolute;
+    width: 15rem; 
+    margin-left: 50rem; 
+    margin-top: -47rem;
+  }
+
+  .footer h2 {
+    font-size: 16px; /* Adjust the font size for smaller screens */
+    margin-left: 10rem; /* Centered text on smaller screens */
+  }
+
+  .footer p {
+    font-size: 8px;
+    margin-top: 2rem; /* Adjust the font size for smaller screens */
+  }
+}
+
+
+
+
+
+
 

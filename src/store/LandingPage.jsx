@@ -18,7 +18,7 @@ const LandingPage = () => {
     }
 
     return (
-        <>
+        <div className="page">
             <div className="landing-page">
                 <div className="carousel-text">
                     <h1>Discover the best deals on all popular online stores</h1>
@@ -53,7 +53,7 @@ const LandingPage = () => {
                 </Carousel>
             </div>
             <Footer />
-        </>
+        </div>
     );
 };
 

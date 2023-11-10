@@ -20,7 +20,6 @@ body {
   background: #fff;
 }
 
-
 .header {
   position: fixed;
   top: 0;
@@ -43,16 +42,14 @@ body {
   justify-content: center;
 }
 
-.header .logo i {
+.header .logo i,
+.header .logo span {
   font-size: 2rem;
   color: #2d7ad4;
 }
 
 .header .logo span {
-  font-size: 1.5rem;
   margin-left: 1rem;
-  color: #2d7ad4;
-  text-transform: capitalize;
 }
 
 .header .Links a {
@@ -66,7 +63,38 @@ body {
   transform: 0.5s;
   text-decoration: underline;
 }
-
+.fa-bars{
+  font-size: 1.5rem;
+  display: none;
+}
+.hamburger{
+  display: none;
+}
+.show{
+  display: flex; 
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+.show a{
+  font-size: 1.5rem;
+  padding: 3rem;
+  color: black;
+}
+.show a:hover{
+  color: #2d7ad4;
+  transform: 0.5s;
+  text-decoration: underline;
+}
+.hamburger button{
+  margin: 1rem;
+  height: 4.5rem;
+  width: 9rem;
+  border-radius: 10px;
+  background: #2d7ad4;
+  color: #fff;
+  border: none;
+}
 .header .buttons button {
   margin: 1rem;
   height: 4.5rem;
@@ -78,64 +106,18 @@ body {
 }
 
 .form {
-    width: 35rem;
-    height: 38rem;
-    position: fixed;
-    top: 0;
-    right: -400px; 
-    margin-right: 3rem;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: right 0.3s ease-in-out;
-    z-index: 999; 
-    margin-top: 8rem;
-  }
-  .form h3{
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 2rem;
-    color: #2d7ad4;
-  }
-  .form.open {
-    right: 0; 
-  }
-  
-
-  
-
-  
- 
-  .form p{
-    align-items: center;
-    text-align: center;
-    margin-top: 1rem;
-  }
-  .form p span{
-    color: #2d7ad4;
-  }
-  
-  .form input {
-    width: 80%;
-    padding: 1rem;
-    margin-top: 2rem;
-    margin-left: 0rem;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-
-  }
-   .form button{
-        font-size: 1.5rem;
-        color: #fff;
-        width: 18rem;
-        background: #2d7ad4;
-        border: none;
-        height: 4rem;
-        margin-top: 1rem;
-        margin-left: 8rem;
-        border-radius: 8px;
-   }
- 
-
+  width: 35rem;
+  height: 38rem;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  margin-right: 3rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+  margin-top: 8rem;
+}
 
 .form h3 {
   text-align: center;
@@ -162,11 +144,13 @@ body {
   width: 80%;
   padding: 1rem;
   margin-top: 2rem;
-  margin-left: 3rem;
+  margin-left: 0;
   border-radius: 3px;
   border: 1px solid #ccc;
 }
-
+.form2{
+  height: 30rem;
+}
 .form button {
   font-size: 1.5rem;
   color: #fff;
@@ -175,50 +159,35 @@ body {
   border: none;
   height: 4rem;
   margin-top: 1rem;
-  margin-left: 8rem;
+  margin-left: 0rem;
   border-radius: 8px;
 }
 
-.form2 {
-  height: 28rem;
+.page .layout {
+  margin-top: 10rem;
+  width: 100%;
+  background: #d9eaff;
+  padding-left: 43%;
+  padding-top: 14%;
+  color: #000;
+  font-family: Outfit;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-   .page .layout {
-    margin-top: 10rem;
-    width: 100%;
-    background: #D9EAFF;
-    padding-left:43%;
-    padding-top: 14%;
-    color: #000;
-    font-family: Outfit;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-   }
-   .line{
-    font-weight: 400;
-    padding-left: 46%;
-   }
-   .page .profile{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
-   }
-   
-   .page .profile h3{
-    font-size: 2.5rem;
-   }
-.page {
-  margin-top: 10rem;
+.line {
+  font-weight: 400;
+  padding-left: 46%;
 }
 
 .page .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
+
 }
 
 .page .profile h3 {
@@ -229,7 +198,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 35rem;
-  height: 35rem;
+  height: 40rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-top: 3rem;
 }
@@ -265,7 +234,7 @@ body {
 }
 
 .page .card {
-  background: #D9EAFF;
+  background: #d9eaff;
   height: 14rem;
   display: flex;
   flex-direction: row;
@@ -276,7 +245,7 @@ body {
 
 .page .card .search {
   margin-left: 4rem;
-  margin-top: -1rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -298,6 +267,7 @@ body {
 
 .page .card .filter {
   margin-right: 1rem;
+  margin-top: 1rem;
 }
 
 .page .card .filter button {
@@ -334,7 +304,7 @@ body {
   object-fit: contain;
 }
 
-.page .contaner .box h3 {
+.page .container .box h3 {
   font-size: 2.5rem;
   line-height: 1.8;
   color: #2d7ad4;
@@ -402,7 +372,6 @@ body {
   margin: 1rem;
 }
 
-
 .card-content p {
   font-size: 1.5rem;
 }
@@ -430,81 +399,100 @@ body {
   background: #007bff;
 }
 
-.page .top_card{
-  background: #3e93cb;
+.page .top_card {
+  background: #D9EAFF;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   height: 15rem;
   width: 100%;
-  margin-top: -6rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
 }
 
-.page .top_card h3{
+.page .top_card h3 {
   line-height: 14rem;
   font-size: 5rem;
 }
 
-.table-row{
+.table-row {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  margin:1.5rem 30%;
+  margin: 1.5rem 30%;
   height: 5rem;
   border-bottom: 1px solid black;
   text-align: center;
 }
-.table-row p{
+
+.table-row p {
   line-height: 2rem;
   margin-bottom: -1rem;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-
-
-
 /* Media Queries for Responsiveness */
 
 @media (max-width: 768px) {
+  html{
+    overflow-x: hidden;
+    font-size: 7px;
+  }
   .header {
     padding: 1rem 5%;
+    display: flex;
     height: auto;
     flex-direction: column;
     align-items: center;
   }
+  .fa-bars{
+    display: block;
+    margin: 1% 90% 1% 0%;
+    
+  }
 
   .header .Links a {
     padding: 1rem;
+    display:  none ;
+    flex-direction: column;
   }
-
-  .form {
-    width: 35rem;
+  .header .buttons{
+    display: none;
+    flex-direction: column;
   }
-
-  .form input {
-    width: 90%;
+  .page .card{
+    margin-top: 2rem;
+    height: 35rem;
+    overflow-y: hidden;
   }
-
-  .form button {
-    margin-left: 8rem;
+  .page .card .search p{
+    font-weight: 200;
+    font-size: 16px;
+  }  
+  .page .card .search input{
+    width: 30rem;
   }
-
-  .page .container .box {
-    padding: 2rem;
+  .page .card .filter{
+    margin-left: 1.5rem;
   }
-
+  .form,
   .page .profile form {
     width: 35rem;
   }
-
+  
+  .form input,
   .page .profile form input {
     width: 90%;
   }
 
+  .form button,
   .page .profile form button {
-    margin-left: 8rem;
+    margin-left: 0rem;
+  }
+
+  .page .container .box {
+    padding: 2rem;
   }
 }

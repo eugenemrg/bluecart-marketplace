@@ -17,7 +17,11 @@ function Navbar() {
     setShowSignupForm(!showSignupForm);
     setShowLoginForm(false)
   };
+  const [isNavigationVisible, setNavigationVisibility] = useState(false);
 
+  const handleHamburgerClick = () => {
+    setNavigationVisibility(!isNavigationVisible);
+  };
   return (
     <div className='header'>
       <div className="logo">
@@ -29,6 +33,16 @@ function Navbar() {
         <Link to='/product'>Product</Link>
         <Link to='/profile'>Profile</Link>
         <Link to='/history'>History</Link>
+      </div>
+      <i class="fa-solid fa-bars" onClick={handleHamburgerClick}></i>
+      <div className={`hamburger ${isNavigationVisible ? 'show' : ''}`}>
+        <Link to='/'>Home</Link>
+        <Link to='/product'>Product</Link>
+        <Link to='/profile'>Profile</Link>
+        <Link to='/history'>History</Link>
+
+        <button onClick={toggleLoginForm}>Login</button>
+        <button onClick={toggleSignupForm}>Sign Up</button>
       </div>
       <div className="buttons">
         <button onClick={toggleLoginForm}>Login</button>
