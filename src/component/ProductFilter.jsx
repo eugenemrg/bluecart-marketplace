@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function ProductFilter({ onFilterChange }) {
-  const handleFilterChange = (filterType) => {
-    onFilterChange(filterType);
-  };
+  const [filter, setFilter] = useState('Price')
+  useEffect(()=>{
+    onFilterChange(filter);
+  }, [filter])
 
   return (
     <div className="filter-card">
-      <label>Filter by:</label>
-      <button className='btn'>Review</button>
+      <label>Filter by: {filter}</label>
+      <button className='btn' onClick={ () => setFilter('Price') }>Price</button>
+      <button className='btn' onClick={ () => setFilter('Review') }>Review</button>
+      <button className='btn' onClick={ () => setFilter('Rating') }>Rating</button>
     </div>
   );
 }

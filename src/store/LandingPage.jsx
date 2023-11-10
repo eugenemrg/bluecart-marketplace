@@ -3,10 +3,12 @@ import { Carousel } from "react-responsive-carousel";
 import Footer from "./Footer";
 import "react-responsive-carousel/lib/styles/carousel.css";
 import './LandingPage.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+    const navigate = useNavigate()
     const [searchQuery, setSearchQuery] = useState('');
+    //const token = localStorage.removeItem('access_token')
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
@@ -15,6 +17,7 @@ const LandingPage = () => {
     const handleSubmit =() =>{
         const query= searchQuery
         localStorage.setItem('searchQuery',query)
+        navigate('/product')
     }
 
     return (
@@ -30,7 +33,7 @@ const LandingPage = () => {
                         value={searchQuery}
                         onChange={handleSearchChange}
                     />
-                    <button onClick={handleSubmit}><Link to='/product'>Search</Link></button>
+                    <button onClick={handleSubmit} >Search</button>
                 </div>
 
                 <Carousel
@@ -42,7 +45,7 @@ const LandingPage = () => {
                     interval={5000}
                 >
                     <div>
-                        <img src="/public/assets/pexels-cup-of-couple-6956801.png" alt="carousel-1" />
+                    <img src="/public/assets/pexels-cup-of-couple-6956801.png" alt="carousel-1" />
                     </div>
                     <div>
                         <img src="/public/assets/pexels-ivan-samkov-7621012.png" alt="carousel-2" />

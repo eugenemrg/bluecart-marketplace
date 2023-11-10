@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function History() {
   const [history, setHistory] = useState([]);
-
+  const navigate=useNavigate()
   useEffect(() => {
     const token = localStorage.getItem('access_token');
     console.log(token);
@@ -23,6 +24,7 @@ function History() {
 
   const handleItemClick = (query) => {
     localStorage.setItem('searchQuery',query);
+    navigate('/product')
   };
 
   console.log(history);

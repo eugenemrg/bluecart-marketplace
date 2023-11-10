@@ -72,6 +72,47 @@ function Product() {
 
   const handleFilter = (newFilterType) => {
     setFilterType(newFilterType);
+    if (data.length > 1) {
+      let products = []
+      switch (newFilterType) {
+
+        case 'Price':
+          products = [...data].sort((a, b) => {
+            const priceA = parseFloat(a.price);
+            const priceB = parseFloat(b.price);
+            return priceA - priceB;
+          });
+          setData(products)
+          break;
+
+        case 'Review':
+          products = [...data].sort((a, b) => {
+            const reviewA = parseInt(a.review);
+            const reviewB = parseInt(b.review);
+            return reviewB - reviewA;
+          });
+          setData(products)
+          break;
+
+        case 'Rating':
+          products = [...data].sort((a, b) => {
+            const ratingA = parseFloat(a.rating);
+            const ratingB = parseFloat(b.rating);
+            return ratingB - ratingA;
+          });
+          setData(products)
+          break;
+
+        default:
+          products = [...data].sort((a, b) => {
+            const priceA = parseFloat(a.price);
+            const priceB = parseFloat(b.price);
+            return priceA - priceB;
+          });
+          setData(products)
+          break;
+      }
+    }
   };
 
   const toggleFilterDropdown = () => {

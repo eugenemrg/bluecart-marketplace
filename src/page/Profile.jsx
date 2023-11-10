@@ -68,7 +68,7 @@ function Profile() {
 
     const requestData = {
       username: username.value,
-      newPassword: newPassword.value,
+      password: newPassword.value,
     };
 
     try {
