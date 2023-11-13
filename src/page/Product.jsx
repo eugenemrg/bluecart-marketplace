@@ -4,27 +4,41 @@ import ProductFilter from '../component/ProductFilter';
 
 function Product() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(localStorage.getItem('searchQuery') || '');
   const [data, setData] = useState([]);
   const [showCard, setShowCard] = useState(false);
   const [filterType, setFilterType] = useState(null);
   const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
-  function getitems(e) {
-    if (e.keyCode === 13) {
-      if (searchQuery !== "") {
-        const requestBody = JSON.stringify({ query: searchQuery });
-        fetch("https://bluecart-api.onrender.com/search", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: requestBody,
-        })
-          .then((response) => response.json())
-          .then((responseData) => setData(responseData))
-          .catch((error) => console.error('Error fetching data:', error));
+  useEffect(() => {
+    fetchData();
+  }, [searchQuery]);
+
+  function fetchData() {
+    if (searchQuery !== "") {
+      const requestBody = JSON.stringify({ query: searchQuery });
+      const token = localStorage.getItem('access_token');
+      let headers = {}
+
+      if (token) {
+        headers = {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        }
+      } else {
+        headers = {
+          "Content-Type": "application/json",
+        }
       }
+
+      fetch("https://bluecart-api.onrender.com/search", {
+        method: "POST",
+        headers: headers,
+        body: requestBody,
+      })
+        .then((response) => response.json())
+        .then((responseData) => setData(responseData))
+        .catch((error) => console.error('Error fetching data:', error));
     }
   }
 
@@ -40,12 +54,6 @@ function Product() {
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      setSearchQuery(event.target.value);
-    }
   };
 
   const getIconForUrl = (url) => {
@@ -64,6 +72,47 @@ function Product() {
 
   const handleFilter = (newFilterType) => {
     setFilterType(newFilterType);
+    if (data.length > 1) {
+      let products = []
+      switch (newFilterType) {
+
+        case 'Price':
+          products = [...data].sort((a, b) => {
+            const priceA = parseFloat(a.price);
+            const priceB = parseFloat(b.price);
+            return priceA - priceB;
+          });
+          setData(products)
+          break;
+
+        case 'Review':
+          products = [...data].sort((a, b) => {
+            const reviewA = parseInt(a.review);
+            const reviewB = parseInt(b.review);
+            return reviewB - reviewA;
+          });
+          setData(products)
+          break;
+
+        case 'Rating':
+          products = [...data].sort((a, b) => {
+            const ratingA = parseFloat(a.rating);
+            const ratingB = parseFloat(b.rating);
+            return ratingB - ratingA;
+          });
+          setData(products)
+          break;
+
+        default:
+          products = [...data].sort((a, b) => {
+            const priceA = parseFloat(a.price);
+            const priceB = parseFloat(b.price);
+            return priceA - priceB;
+          });
+          setData(products)
+          break;
+      }
+    }
   };
 
   const toggleFilterDropdown = () => {
@@ -80,8 +129,6 @@ function Product() {
             placeholder="Search here for your products ..."
             value={searchQuery}
             onChange={handleSearch}
-            onKeyUp={getitems}
-            onKeyPress={handleKeyPress}
           />
         </div>
         <div className="filter">

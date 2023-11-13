@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import { useSignIn } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
 
-function LoginForm({ onClose }) {
+function LoginForm({ onClose, onOpen }) {
   const signIn = useSignIn();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true);
@@ -48,7 +48,7 @@ function LoginForm({ onClose }) {
 
           if (data.access_token) {
             localStorage.setItem('access_token', data.access_token);
-            
+
             signIn({
               token: data.access_token,
               expiresIn: 1800,
@@ -60,6 +60,9 @@ function LoginForm({ onClose }) {
               title: 'Login Successful',
               text: 'You have successfully logged in.',
             });
+
+            // Close the card upon successful login
+            toggleForm();
 
             navigate('/');
           } else {
@@ -103,7 +106,7 @@ function LoginForm({ onClose }) {
         <input type="email" placeholder="email" value={email} onChange={handleEmailChange} />
         <input type="password" placeholder="password" value={password} onChange={handlePasswordChange} />
         <p>
-          <span>Forgot password </span>I do not have an account? <span>Signup</span>
+          I do not have an account? <span onClick={onOpen}>Signup</span>
         </p>
         <button type="submit">Login</button>
       </form>
