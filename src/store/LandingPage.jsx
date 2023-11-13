@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 const LandingPage = () => {
     const navigate = useNavigate()
     const [searchQuery, setSearchQuery] = useState('');
-    //const token = localStorage.removeItem('access_token')
+    const token = localStorage.removeItem('access_token')
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
