@@ -7,20 +7,19 @@ BlueCart is an e-commerce website that focuses on providing solutions for margin
 BlueCart Marketplace is built using React and Python (Flask)
 
 ## Features
-The Minimun Viable Products
 
-### User Registration and Authentication
+##### User Registration and Authentication
 Users can create an account and log in to access personalized features.
 If a user is not logged in they cannot be able to access their search history. The profile is also only available only upon creating an account with Bluecart Marketplace
 
-### Product Catalog
+#### Product Catalog
 Browse and search for products available on the platform.
 
-### Marginal Benefit Analysis
-Provides insights into the marginal benefit of purchasing a product.
+#### Marginal Benefit and Cost Benefit Analysis
+Provides insights into the marginal benefit of purchasing a product and helps users understand the cost benefit of their purchases.
 
-### Cost Benefit Analysis
-Helps users understand the cost benefit of their purchases.
+## Deployment Link
+[BlueCart Marketplace - https://bluecart-marketplace-rouge.vercel.app/](https://bluecart-marketplace-rouge.vercel.app/)
 
 # Setup Requirements 
 - Visual Studio Code, see [here](https://code.visualstudio.com/)
@@ -30,27 +29,48 @@ Helps users understand the cost benefit of their purchases.
 - Optionally, set-up and customize the API. Update the project links to match your API links. Read the API setup guide, visit [BlueCart Marketplace API](https://github.com/eugenemrg/bluecart-marketplace-api)
 
 # Installation
-Clone the project repository
 
-### Copy/Clone the repository
+- Copy/Clone the repository
 ```
 git clone git@github.com:eugenemrg/bluecart-marketplace.git
 ```
-### Install the required dependencies
 
-bash
+- Install the required dependencies
 ```
 cd bluecart-marketplace
 npm install
 ```
 
-### Start the development server
-
-bash
+- Start the development server
 ```
 npm run dev
 ``` 
-Access the BlueCart website in your browser at http://localhost:5173/ or a similar url
+- Access the BlueCart website in your browser at http://localhost:5173/ or a similar url
+
+
+# Screenshots
+Landing Page
+
+![](./screenshots/0.png)
+
+![](./screenshots/1.png)
+
+Product / Item Search
+
+![](./screenshots/2.png)
+
+![](./screenshots/3.png)
+![](./screenshots/4.png)
+
+Log In / Sign Up
+
+![](./screenshots/5.png)
+
+![](./screenshots/6.png)
+
+Search History
+
+![](./screenshots/7.png)
 
 # Technologies Used
 - Javascript
