@@ -8,7 +8,7 @@ BlueCart Marketplace is built using React and Python (Flask)
 
 ## Features
 
-##### User Registration and Authentication
+#### User Registration and Authentication
 Users can create an account and log in to access personalized features.
 If a user is not logged in they cannot be able to access their search history. The profile is also only available only upon creating an account with Bluecart Marketplace
 
