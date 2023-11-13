@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {useAuthHeader} from 'react-auth-kit'
 
 function History() {
   const [history, setHistory] = useState([]);
   const navigate=useNavigate()
+  const authHeader = useAuthHeader()
+
   useEffect(() => {
-    const token = localStorage.getItem('access_token');
-    console.log(token);
-    if (token) {
-      fetchHistory(token);
+    // const token = localStorage.getItem('access_token');
+    // console.log(token);
+    // if (token) {
+    //   fetchHistory(token);
+    // }
+    if(authHeader() != ''){
+      fetchHistory()
     }
   }, []);
 
-  const fetchHistory = (token) => {
+  const fetchHistory = () => {
     fetch('https://bluecart-api.onrender.com/history', {
       headers: {
-        Authorization: `Bearer ${token}`,
+        "Authorization": `${authHeader()}`,
       }
     })
       .then((res) => res.json())

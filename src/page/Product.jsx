@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../component/ProductCard';
 import ProductFilter from '../component/ProductFilter';
+import {useAuthHeader} from 'react-auth-kit'
 
 function Product() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -9,6 +10,7 @@ function Product() {
   const [showCard, setShowCard] = useState(false);
   const [filterType, setFilterType] = useState(null);
   const [showFilterDropdown, setShowFilterDropdown] = useState(false);
+  const authHeader = useAuthHeader()
 
   useEffect(() => {
     fetchData();
@@ -17,13 +19,24 @@ function Product() {
   function fetchData() {
     if (searchQuery !== "") {
       const requestBody = JSON.stringify({ query: searchQuery });
-      const token = localStorage.getItem('access_token');
+      // const token = localStorage.getItem('access_token');
       let headers = {}
 
-      if (token) {
+      // if (token) {
+      //   headers = {
+      //     "Content-Type": "application/json",
+      //     "Authorization": `Bearer ${token}`,
+      //   }
+      // } else {
+      //   headers = {
+      //     "Content-Type": "application/json",
+      //   }
+      // }
+
+      if (authHeader() != '') {
         headers = {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          "Authorization": `${authHeader()}`,
         }
       } else {
         headers = {
@@ -36,7 +49,13 @@ function Product() {
         headers: headers,
         body: requestBody,
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (response.ok){
+            return response.json()
+          }else{
+            return []
+          }
+        })
         .then((responseData) => setData(responseData))
         .catch((error) => console.error('Error fetching data:', error));
     }
