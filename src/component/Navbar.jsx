@@ -34,7 +34,7 @@ function Navbar() {
         <Link to='/profile'>Profile</Link>
         <Link to='/history'>History</Link>
       </div>
-      <i class="fa-solid fa-bars" onClick={handleHamburgerClick}></i>
+      <i className="fa-solid fa-bars" onClick={handleHamburgerClick}></i>
       <div className={`hamburger ${isNavigationVisible ? 'show' : ''}`}>
         <Link to='/'>Home</Link>
         <Link to='/product'>Product</Link>
