@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import LoginForm from './LoginForm'; // Import the LoginForm component
-import SignupForm from './SignupForm'; // Import the SignupForm component
+import LoginForm from './LoginForm'; 
+import SignupForm from './SignupForm'; 
+
 
 function Navbar() {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -9,12 +10,18 @@ function Navbar() {
 
   const toggleLoginForm = () => {
     setShowLoginForm(!showLoginForm);
+    setShowSignupForm(false)
   };
 
   const toggleSignupForm = () => {
     setShowSignupForm(!showSignupForm);
+    setShowLoginForm(false)
   };
+  const [isNavigationVisible, setNavigationVisibility] = useState(false);
 
+  const handleHamburgerClick = () => {
+    setNavigationVisibility(!isNavigationVisible);
+  };
   return (
     <div className='header'>
       <div className="logo">
@@ -25,14 +32,24 @@ function Navbar() {
         <Link to='/'>Home</Link>
         <Link to='/product'>Product</Link>
         <Link to='/profile'>Profile</Link>
-        <Link>History</Link>
+        <Link to='/history'>History</Link>
+      </div>
+      <i class="fa-solid fa-bars" onClick={handleHamburgerClick}></i>
+      <div className={`hamburger ${isNavigationVisible ? 'show' : ''}`}>
+        <Link to='/'>Home</Link>
+        <Link to='/product'>Product</Link>
+        <Link to='/profile'>Profile</Link>
+        <Link to='/history'>History</Link>
+
+        <button onClick={toggleLoginForm}>Login</button>
+        <button onClick={toggleSignupForm}>Sign Up</button>
       </div>
       <div className="buttons">
         <button onClick={toggleLoginForm}>Login</button>
         <button onClick={toggleSignupForm}>Sign Up</button>
       </div>
-      {showSignupForm && <SignupForm onClose={toggleSignupForm} />}
-      {showLoginForm && <LoginForm onClose={toggleLoginForm} />}
+      {showSignupForm && <SignupForm onClose={toggleSignupForm} onOpen={toggleLoginForm}/>}
+      {showLoginForm && <LoginForm onClose={toggleLoginForm} onOpen={toggleSignupForm}/>}
     </div>
   );
 }
