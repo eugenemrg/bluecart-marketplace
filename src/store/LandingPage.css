@@ -19,30 +19,32 @@ body {
   overflow: hidden;
 }
 
-.carousel-text, .carousel{
+.carousel-text, .carousel-root{
   grid-area: def;
 }
 
 .carousel-text{
   z-index: 1000;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
   text-align: center;
 }
 
 .header {
   text-align: center;
+  z-index: 100000;
 }
 
 .carousel-text h1 {
   width: 80%; 
-  height: 200px; 
+  /* height: 200px;  */
   flex-shrink: 0;
   color: #2D7AD4;
   text-align: center;
@@ -51,8 +53,8 @@ body {
   font-style: normal;
   font-weight: 700; 
   line-height: 8rem;
-  margin-top: -15rem;
- margin-bottom: 15%;
+  /* margin-top: -15rem;
+ margin-bottom: 15%; */
 }
 
 .carousel-text p {
@@ -63,7 +65,7 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-bottom: 8rem;
+  margin-bottom: 32px;
   margin-top: 1.5rem;
 }
 .carousel-text button{
@@ -73,9 +75,9 @@ body {
   background: #2d7ad4;
   border: none;
   height: 6rem;
-  margin-top: -9rem;
-  margin-left: 70rem;
-  border-radius: 8px;
+  /* margin-top: -9rem;
+  margin-left: 70rem; */
+  border-radius: 32px;
 }
 .carousel-text button a{
   color: #FFF;
@@ -83,14 +85,13 @@ body {
 #search {
   width: 487px; 
   padding: 24px 32px;
-  flex-shrink: 0;
   font-family: 'Inter', sans-serif;
   border-radius: 96px;
-  font-size: 1em;
+  font-size: 14px;
   border: 2px solid #2D7AD4;
   background: #fefefe;
-  margin-top: -6rem;
-  margin-bottom: 30px; 
+  /* margin-top: -6rem; */
+  margin-bottom: 32px; 
   outline-style: none;
 }
 
