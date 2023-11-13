@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import {useAuthHeader} from 'react-auth-kit'
+import {useSignOut} from 'react-auth-kit';
 
 function Profile() {
+  const authHeader = useAuthHeader()
+  const signOut = useSignOut()
+
   const handleDeleteAccount = async () => {
     const deleteApiUrl = 'https://bluecart-api.onrender.com/profile';
-    const token = localStorage.getItem('access_token');
+    // const token = localStorage.getItem('access_token');
 
-    if (!token) {
+    if (authHeader() == '') {
       alert('You need to be logged in to delete your account.');
       return;
     }
@@ -15,13 +20,15 @@ function Profile() {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          "Authorization": `${authHeader()}`,
         },
       });
 
       if (response.ok) {
-        localStorage.removeItem('token');
+        // localStorage.removeItem('token');
+        signOut()
         alert('Account deleted successfully.');
+
       } else {
         const errorData = await response.json();
         console.error('Error response data:', errorData);
@@ -36,16 +43,16 @@ function Profile() {
   const [userData, setUserData] = useState('');
 
   useEffect(() => {
-    const token = localStorage.getItem('access_token');
-    if (token) {
-      upDate(token);
+    // const token = localStorage.getItem('access_token');
+    if (authHeader() != '') {
+      upDate();
     }
   }, []);
 
-  const upDate = (token) => {
+  const upDate = () => {
     fetch('https://bluecart-api.onrender.com/profile', {
       headers: {
-        Authorization: `Bearer ${token}`,
+        "Authorization": `${authHeader()}`,
       },
     })
       .then((res) => res.json())
@@ -55,8 +62,8 @@ function Profile() {
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
     const updateApiUrl = 'https://bluecart-api.onrender.com/profile';
-    const token = localStorage.getItem('access_token');
-    if (!token) {
+    // const token = localStorage.getItem('access_token');
+    if (authHeader() == '') {
       alert('You need to be logged in to update your profile.');
       return;
     }
@@ -76,14 +83,14 @@ function Profile() {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          "Authorization": `${authHeader()}`,
         },
         body: JSON.stringify(requestData),
       });
 
       if (response.ok) {
         alert('Profile updated successfully.');
-        upDate(token);
+        upDate();
       } else {
         const errorData = await response.json();
         console.error('Error response data:', errorData);
