@@ -326,5 +326,18 @@ body{
   font-size: 16px;
 }
 
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
 
+  .container {
+    padding: 10px;
+  }
+}
 
+@media screen and (max-width: 480px) {
+  .navbar {
+    font-size: 14px;
+  }
+}
